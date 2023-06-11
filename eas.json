@@ -3,8 +3,8 @@
     "version": ">= 0.57.0"
   },
   "build": {
-    "production": {
-      "channel": "production",
+    "sandbox": {
+      "channel": "sandbox",
       "distribution": "store",
       "ios": {
         "image": "latest"
@@ -14,7 +14,26 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "production",
+        "APP_ENV": "sandbox",
+        "FLIPPER_DISABLE": "1"
+      },
+      "prebuildCommand": "prebuild --skip-dependency-update react",
+      "cache": {
+        "key": "eas-1"
+      }
+    },
+    "prod": {
+      "channel": "prod",
+      "distribution": "store",
+      "ios": {
+        "image": "latest"
+      },
+      "android": {
+        "buildType": "app-bundle",
+        "image": "latest"
+      },
+      "env": {
+        "APP_ENV": "prod",
         "FLIPPER_DISABLE": "1"
       },
       "prebuildCommand": "prebuild --skip-dependency-update react",
