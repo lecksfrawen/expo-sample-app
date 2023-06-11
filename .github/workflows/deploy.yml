@@ -49,8 +49,8 @@ jobs:
       - name: Publish to Expo
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            cp .env.prod .env
-            expo eas:build --platform all --profile prod
+            cp .env.sandbox .env
+            expo eas:build --platform all --profile sandbox
           elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
             cp .env.dev .env
             expo eas:build --platform all --profile dev
