@@ -16,7 +16,7 @@ const z = require('zod');
 
 const packageJSON = require('./package.json');
 const path = require('path');
-const APP_ENV = process.env.APP_ENV ?? 'development';
+const APP_ENV = process.env.APP_ENV ?? 'dev';
 const envPath = path.resolve(__dirname, `.env.${APP_ENV}`);
 
 require('dotenv').config({
@@ -65,7 +65,7 @@ const withEnvSuffix = (name) => {
  */
 
 const client = z.object({
-  APP_ENV: z.enum(['development', 'staging', 'production']),
+  APP_ENV: z.enum(['dev', 'staging', 'prod', 'uat', 'sandbox']),
   NAME: z.string(),
   BUNDLE_ID: z.string(),
   PACKAGE: z.string(),

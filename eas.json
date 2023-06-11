@@ -42,7 +42,7 @@
         "key": "eas-1"
       }
     },
-    "development": {
+    "dev": {
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
@@ -52,7 +52,7 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "development"
+        "APP_ENV": "dev"
       },
 
       "prebuildCommand": "prebuild --skip-dependency-update react",
@@ -69,7 +69,7 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "development"
+        "APP_ENV": "dev"
       },
       "node": "14.18.1",
       "prebuildCommand": "prebuild --skip-dependency-update react",
