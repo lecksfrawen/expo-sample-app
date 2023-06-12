@@ -119,17 +119,17 @@
         "track": "internal",
         "releaseStatus": "draft"
       }
-    }
-  },
-  "sandbox": {
-    "ios": {
-      "appleId": "lecksfrawen@gmail.com",
-      "appleTeamId": "SZP43QR59Q",
-      "ascAppId": "6450187176"
     },
-    "android": {
-      "track": "internal",
-      "releaseStatus": "draft"
+    "sandbox": {
+      "ios": {
+        "appleId": "lecksfrawen@gmail.com",
+        "appleTeamId": "SZP43QR59Q",
+        "ascAppId": "6450187176"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
     }
   }
 }
