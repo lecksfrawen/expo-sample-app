@@ -100,7 +100,7 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "lecksfrawen@gmail.com",
+        "appleId": "hector.dediego@distillery.com",
         "appleTeamId": "SZP43QR59Q",
         "ascAppId": "6450187176"
       },
@@ -111,7 +111,7 @@
     },
     "prod": {
       "ios": {
-        "appleId": "lecksfrawen@gmail.com",
+        "appleId": "hector.dediego@distillery.com",
         "appleTeamId": "SZP43QR59Q",
         "ascAppId": "6450187176"
       },
@@ -122,7 +122,7 @@
     },
     "sandbox": {
       "ios": {
-        "appleId": "lecksfrawen@gmail.com",
+        "appleId": "hector.dediego@distillery.com",
         "appleTeamId": "SZP43QR59Q",
         "ascAppId": "6450187176"
       },

@@ -1,4 +1,5 @@
 import type { ConfigContext, ExpoConfig } from '@expo/config';
+import { config } from 'dotenv';
 
 import { ClientEnv, Env, withEnvSuffix } from './env';
 
@@ -44,8 +45,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     ...ClientEnv,
     eas: {
-      projectId: 'a7952af7-54d9-4869-93bd-286f3a1fb738',
+      projectId: '2451298e-d570-410b-97c7-ffa878fe234e',
     },
   },
   owner: 'lecksfrawen',
 });
+
+console.log(config);
