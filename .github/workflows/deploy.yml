@@ -57,17 +57,17 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             cp .env.sandbox .env
-            npx eas-cli build --profile sandbox --platform all --auto-submit --non-interactive
+            npx eas-cli build --profile sandbox --platform ios --auto-submit --non-interactive
           elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
             cp .env.dev .env
-            npx eas-cli build --profile dev --platform all --auto-submit --non-interactive
+            npx eas-cli build --profile dev --platform ios --auto-submit --non-interactive
           elif [ "${{ github.ref }}" = "refs/heads/staging" ]; then
             cp .env.staging .env
-            npx eas-cli build --profile staging --platform all --auto-submit --non-interactive
+            npx eas-cli build --profile staging --platform ios --auto-submit --non-interactive
           elif [ "${{ github.ref }}" = "refs/heads/uat" ]; then
             cp .env.uat .env
-            npx eas-cli build --profile uat --platform all --auto-submit --non-interactive
+            npx eas-cli build --profile uat --platform ios --auto-submit --non-interactive
           elif [ "${{ github.ref }}" = "refs/heads/sandbox" ]; then
             cp .env.sandbox .env
-            npx eas-cli build --profile sandbox --platform all --auto-submit --non-interactive
+            npx eas-cli build --profile sandbox --platform ios --auto-submit --non-interactive
           fi
