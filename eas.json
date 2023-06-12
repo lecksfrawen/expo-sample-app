@@ -5,7 +5,7 @@
   "build": {
     "sandbox": {
       "channel": "sandbox",
-      "distribution": "store",
+      "distribution": "internal",
       "ios": {
         "image": "latest"
       },
