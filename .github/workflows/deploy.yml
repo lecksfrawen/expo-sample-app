@@ -56,8 +56,8 @@ jobs:
       - name: 🚀 Deploy to EAS and generate a build
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            cp .env.sandbox .env
-            npx eas-cli build --profile sandbox --platform ios --auto-submit --non-interactive
+            cp .env.prod .env
+            npx eas-cli build --profile prod --platform ios --auto-submit --non-interactive
           elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
             cp .env.dev .env
             npx eas-cli build --profile dev --platform ios --auto-submit --non-interactive
@@ -67,7 +67,4 @@ jobs:
           elif [ "${{ github.ref }}" = "refs/heads/uat" ]; then
             cp .env.uat .env
             npx eas-cli build --profile uat --platform ios --auto-submit --non-interactive
-          elif [ "${{ github.ref }}" = "refs/heads/sandbox" ]; then
-            cp .env.sandbox .env
-            npx eas-cli build --profile sandbox --platform ios --auto-submit --non-interactive
           fi
