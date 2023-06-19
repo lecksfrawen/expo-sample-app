@@ -6,7 +6,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: Env.NAME,
   description: `${Env.NAME} Mobile App`,
-  slug: 'obytesapp',
+  slug: 'sampleexpoapp',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: `${withEnvSuffix('./assets/icon')}.png`,
@@ -23,6 +23,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: true,
     bundleIdentifier: Env.BUNDLE_ID,
+    config: {
+      usesNonExemptEncryption: false,
+    },
   },
   android: {
     adaptiveIcon: {
@@ -40,5 +43,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ],
   extra: {
     ...ClientEnv,
+    eas: {
+      projectId: '2451298e-d570-410b-97c7-ffa878fe234e',
+    },
   },
+  owner: 'lecksfrawen',
 });

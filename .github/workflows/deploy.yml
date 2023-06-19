@@ -1,0 +1,70 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main      
+      - staging
+      - uat
+      - dev
+      - sandbox
+
+jobs:
+  build:
+    name: Install and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  deploy:
+    name: 🚀 Deploy to Expo
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v3
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🚀 Deploy to EAS and generate a build
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            cp .env.prod .env
+            npx eas-cli build --profile prod --platform ios --auto-submit --non-interactive
+          elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+            cp .env.dev .env
+            npx eas-cli build --profile dev --platform ios --auto-submit --non-interactive
+          elif [ "${{ github.ref }}" = "refs/heads/staging" ]; then
+            cp .env.staging .env
+            npx eas-cli build --profile staging --platform ios --auto-submit --non-interactive
+          elif [ "${{ github.ref }}" = "refs/heads/uat" ]; then
+            cp .env.uat .env
+            npx eas-cli build --profile uat --platform ios --auto-submit --non-interactive
+          fi

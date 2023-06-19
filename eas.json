@@ -3,8 +3,27 @@
     "version": ">= 0.57.0"
   },
   "build": {
-    "production": {
-      "channel": "production",
+    "sandbox": {
+      "channel": "sandbox",
+      "distribution": "internal",
+      "ios": {
+        "image": "latest"
+      },
+      "android": {
+        "buildType": "app-bundle",
+        "image": "latest"
+      },
+      "env": {
+        "APP_ENV": "sandbox",
+        "FLIPPER_DISABLE": "1"
+      },
+      "prebuildCommand": "prebuild --skip-dependency-update react",
+      "cache": {
+        "key": "eas-1"
+      }
+    },
+    "prod": {
+      "channel": "prod",
       "distribution": "store",
       "ios": {
         "image": "latest"
@@ -14,7 +33,7 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "production",
+        "APP_ENV": "prod",
         "FLIPPER_DISABLE": "1"
       },
       "prebuildCommand": "prebuild --skip-dependency-update react",
@@ -42,7 +61,7 @@
         "key": "eas-1"
       }
     },
-    "development": {
+    "dev": {
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
@@ -52,7 +71,7 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "development"
+        "APP_ENV": "dev"
       },
 
       "prebuildCommand": "prebuild --skip-dependency-update react",
@@ -69,7 +88,7 @@
         "image": "latest"
       },
       "env": {
-        "APP_ENV": "development"
+        "APP_ENV": "dev"
       },
       "node": "14.18.1",
       "prebuildCommand": "prebuild --skip-dependency-update react",
@@ -79,6 +98,38 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "hector.dediego@distillery.com",
+        "appleTeamId": "SZP43QR59Q",
+        "ascAppId": "6450187176"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
+    },
+    "prod": {
+      "ios": {
+        "appleId": "hector.dediego@distillery.com",
+        "appleTeamId": "SZP43QR59Q",
+        "ascAppId": "6450187176"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
+    },
+    "sandbox": {
+      "ios": {
+        "appleId": "hector.dediego@distillery.com",
+        "appleTeamId": "SZP43QR59Q",
+        "ascAppId": "6450187176"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
+    }
   }
 }
